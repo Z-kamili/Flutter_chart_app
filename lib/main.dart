@@ -1,4 +1,4 @@
-import './transaction.dart';
+import 'package:first_app/transaction.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -25,22 +25,18 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
 
-  final List<Transaction> transaction =  [
+  // final List<>;
 
-    Transaction(id: 't1', title: 'New Shoes', amount: 69.99,date:DateTime.now())
+  const MyHomePage({super.key, required this.title});
 
-  ];
-
-  // const MyHomePage({super.key, required this.title});
-
-  final String title = '';
+  final String title;
 
 
   @override
@@ -49,7 +45,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+   final List<Transaction> transaction =  [
 
+    Transaction(id: 't1', title: 'New Shoes', amount: 69.99,date:DateTime.now()),
+    Transaction(id: 't2', title: 'Weekly Groceries', amount: 78.99,date:DateTime.now())
+
+  ];
 
 
   @override
@@ -71,10 +72,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   elevation : 5,
                ),
             ),
-            Card(
-                color: Colors.red,
-                child: Text('LIST OF TX'),
-                ),
+           Column(
+            children: transaction.map((tx) {
+              return Card(child:Text(tx.title));
+            }).toList(),
+           ),
             ],
         ),
     );
