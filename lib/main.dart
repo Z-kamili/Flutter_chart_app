@@ -1,3 +1,4 @@
+import 'package:first_app/transaction.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
 
-  final List<>;
+  final List<Transaction> transaction =  [];
 
   const MyHomePage({super.key, required this.title});
 
