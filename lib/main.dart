@@ -1,4 +1,4 @@
-import 'package:first_app/transaction.dart';
+import './transaction.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -25,18 +25,22 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
 
-  final List<Transaction> transaction =  [];
+  final List<Transaction> transaction =  [
 
-  const MyHomePage({super.key, required this.title});
+    Transaction(id: 't1', title: 'New Shoes', amount: 69.99,date:DateTime.now())
 
-  final String title;
+  ];
+
+  // const MyHomePage({super.key, required this.title});
+
+  final String title = '';
 
 
   @override
