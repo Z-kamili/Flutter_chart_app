@@ -89,8 +89,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     padding: EdgeInsets.all(10),
                     child:Text(
-                      tx.amount.toString(),
-                      style:TextStyle(
+                     'A: ${tx.amount.toString()}',
+                      style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                         color: Colors.purple
@@ -101,8 +101,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                      Text(tx.title),
-                      Text(tx.date.toString()),
+                      Text(tx.title,style:TextStyle(fontSize: 18,fontWeight:FontWeight.bold)),
+                      Text(tx.date.toString(),
+                          style: TextStyle(color: Colors.grey),
+                      ),
                     ],)
               ],),
               );
