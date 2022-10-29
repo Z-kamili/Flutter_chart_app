@@ -1,6 +1,6 @@
 import 'package:first_app/transaction.dart';
 import 'package:flutter/material.dart';
-
+import 'package:intl/intl.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -102,8 +102,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                       Text(tx.title,style:TextStyle(fontSize: 18,fontWeight:FontWeight.bold)),
-                      Text(tx.date.toString(),
-                          style: TextStyle(color: Colors.grey),
+                      Text(
+                      DateFormat('yyyy-MM-dd').format(tx.date),
+                      style: TextStyle(color: Colors.grey),
                       ),
                     ],)
               ],),
