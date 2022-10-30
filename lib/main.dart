@@ -61,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            // mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget> [
             Container(
@@ -72,6 +72,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   elevation : 5,
                ),
             ),
+            Card(
+              elevation: 5,
+              child:Container(
+                padding: EdgeInsets.all(10),
+                child:Column(
+                  children: <Widget>[
+                       TextField(),
+                       TextField(),
+                    ],
+                  ),
+              )
+          ),
            Column(
             children: transaction.map((tx) {
               return Card(
