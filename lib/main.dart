@@ -1,4 +1,5 @@
 import 'package:first_app/models/transaction.dart';
+import 'package:first_app/widgets/transaction_list.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 void main() {
@@ -120,6 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
               )
           ),
+          TransactionList()
         ],
     ),
   );
