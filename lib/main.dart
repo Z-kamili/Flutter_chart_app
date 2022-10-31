@@ -1,4 +1,5 @@
-import 'package:first_app/transaction.dart';
+import 'package:first_app/models/transaction.dart';
+import './widgets/transaction_list.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 void main() {
@@ -31,12 +32,16 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+  // String titleInput;
+  // String amountInput;
 
-  // final List<>;
+  // final titleController = TextEditingController();
+  // final amountController = TextEditingController();
+  final String title;
 
   const MyHomePage({super.key, required this.title});
 
-  final String title;
+
 
 
   @override
@@ -47,10 +52,23 @@ class _MyHomePageState extends State<MyHomePage> {
 
    final List<Transaction> transaction =  [
 
-    Transaction(id: 't1', title: 'New Shoes', amount: 69.99,date:DateTime.now()),
-    Transaction(id: 't2', title: 'Weekly Groceries', amount: 78.99,date:DateTime.now())
-
+    Transaction(
+      id: 't1', 
+      title: 'New Shoes', 
+      amount: 69.99,
+      date:DateTime.now()
+    ),
+    Transaction(
+      id: 't2', 
+      title: 'Weekly Groceries', 
+      amount: 78.99,
+      date:DateTime.now()
+      ),
   ];
+
+
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
 
 
   @override
@@ -80,17 +98,24 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: <Widget>[
                        TextField(
                         decoration: InputDecoration(labelText: 'Title'),
+                        controller: titleController,
+                        // onChanged:(val) {
+                        //   titleInput = val;
+                        // },
                        ),
                        TextField(
                         decoration: InputDecoration(labelText: 'Amount'),
+                        controller: amountController,
                        ),
                        ElevatedButton(
                         child:Text('Add Transaction'),
                         style: ElevatedButton.styleFrom(
                              // ignore: deprecated_member_use
-                             primary: Colors.blue,
+                             primary: Colors.purple,
                         ),
-                        onPressed: (){},
+                        onPressed: () {
+                           print(titleController.text);
+                        },
                         )
                     ],
                   ),
@@ -119,7 +144,6 @@ class _MyHomePageState extends State<MyHomePage> {
                         fontSize: 20,
                         color: Colors.purple
                         ),
-
                       ),
                     ),
                     Column(
@@ -135,8 +159,8 @@ class _MyHomePageState extends State<MyHomePage> {
               );
             }).toList(),
            ),
-            ],
-        ),
-    );
-  }
+        ],
+    ),
+  );
+}
 }
