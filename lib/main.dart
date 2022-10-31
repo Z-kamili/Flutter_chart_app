@@ -82,7 +82,8 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Column(
+      body: SingleChildScrollView(
+        child: Column(
             // mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget> [
@@ -97,6 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
            UserTransaction()
         ],
     ),
+  ),
   );
 }
 }
