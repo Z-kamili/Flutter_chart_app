@@ -1,7 +1,11 @@
 import 'package:first_app/models/transaction.dart';
+import 'package:first_app/widgets/new_transaction.dart';
 import 'package:first_app/widgets/transaction_list.dart';
+import './widgets/user_transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import './widgets/transaction_list.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -90,38 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   elevation : 5,
                ),
             ),
-            Card(
-              elevation: 5,
-              child:Container(
-                padding: EdgeInsets.all(10),
-                child:Column(
-                  children: <Widget>[
-                       TextField(
-                        decoration: InputDecoration(labelText: 'Title'),
-                        controller: titleController,
-                        // onChanged:(val) {
-                        //   titleInput = val;
-                        // },
-                       ),
-                       TextField(
-                        decoration: InputDecoration(labelText: 'Amount'),
-                        controller: amountController,
-                       ),
-                       ElevatedButton(
-                        child:Text('Add Transaction'),
-                        style: ElevatedButton.styleFrom(
-                             // ignore: deprecated_member_use
-                             primary: Colors.purple,
-                        ),
-                        onPressed: () {
-                           print(titleController.text);
-                        },
-                        )
-                    ],
-                  ),
-              )
-          ),
-          TransactionList()
+           UserTransaction()
         ],
     ),
   );

@@ -3,6 +3,9 @@ import 'package:intl/intl.dart';
 import '../models/transaction.dart';
 
 class TransactionList extends StatefulWidget {
+  final List<Transaction> transaction;
+
+  TransactionList(this.transaction);
 
   @override 
   _TransactionListState createState() => _TransactionListState();
@@ -23,8 +26,7 @@ class _TransactionListState extends State<TransactionList> {
   @override
   Widget build(BuildContext context) {
 
-        return   
-            Column(
+            return Column(
               children: _userTransaction.map((tx) {
               return Card(
                   child : Row(children: <Widget>[
@@ -62,6 +64,7 @@ class _TransactionListState extends State<TransactionList> {
               );
             }).toList(),
            );
+
   }
  
   }
