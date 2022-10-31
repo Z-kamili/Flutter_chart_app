@@ -22,10 +22,12 @@ class _UserTransactionsState extends State<UserTransaction> {
   void _addNewTransaction(String txTitle,double txamount) {
 
       final newTx = Transaction(id:'',title: txTitle,amount:txamount,date:DateTime.now());
-
+      
       setState(() {
         _userTransaction.add(newTx);
       });
+
+      // print(_userTransaction);
 
   }
 
@@ -35,7 +37,7 @@ class _UserTransactionsState extends State<UserTransaction> {
     return Column(
       
       children : <Widget>[ 
-        NewTransaction(),
+        NewTransaction(_addNewTransaction),
         TransactionList(_userTransaction)
         ],
 
