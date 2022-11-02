@@ -1,7 +1,6 @@
 import 'package:first_app/models/transaction.dart';
 import 'package:first_app/widgets/new_transaction.dart';
 import 'package:first_app/widgets/transaction_list.dart';
-// import './widgets/user_transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import './widgets/transaction_list.dart';
@@ -41,7 +40,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   // String titleInput;
   // String amountInput;
-
   // final titleController = TextEditingController();
   // final amountController = TextEditingController();
   final String title;
@@ -53,6 +51,8 @@ class MyHomePage extends StatefulWidget {
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
+
+
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -79,12 +79,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _addNewTransaction(String txTitle,double txAmount) 
   {
+
     final newTx = Transaction(
       title: txTitle, 
       amount: txAmount, 
       date: DateTime.now(),
       id:DateTime.now().toString(),
       );
+    setState(() {
+      transaction.add(newTx);
+    });
   }
 
 
@@ -94,14 +98,12 @@ class _MyHomePageState extends State<MyHomePage> {
   void _startAddNewTransaction(BuildContext ctx) {
     showModalBottomSheet(context: ctx,builder: (_) {
             return GestureDetector(
-              onTap: () {
-
-              },
+              onTap: () {},
               child:  NewTransaction(_addNewTransaction),
               behavior: HitTestBehavior.opaque,
             );
     },
-);
+  );
   }
 
 
@@ -141,7 +143,6 @@ class _MyHomePageState extends State<MyHomePage> {
     child: Icon(Icons.add),
     onPressed: () => _startAddNewTransaction(context),
   ),
-
   );
 }
 }

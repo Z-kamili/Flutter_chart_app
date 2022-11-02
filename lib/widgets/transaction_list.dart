@@ -3,11 +3,13 @@ import 'package:intl/intl.dart';
 import '../models/transaction.dart';
 
 class TransactionList extends StatelessWidget {
+
   final List<Transaction> transaction;
 
   TransactionList(this.transaction);
 
-    @override
+
+  @override
   Widget build(BuildContext context) {
 
             return Container(
@@ -42,8 +44,8 @@ class TransactionList extends StatelessWidget {
                       children: <Widget>[
                       Text(transaction[index].title,style:TextStyle(fontSize: 18,fontWeight:FontWeight.bold)),
                       Text(
-                      DateFormat('yyyy-MM-dd').format(transaction[index].date),
-                      style: TextStyle(color: Colors.grey),
+                         DateFormat('yyyy-MM-dd').format(transaction[index].date),
+                         style: TextStyle(color: Colors.grey),
                       ),
                     ],
                   )

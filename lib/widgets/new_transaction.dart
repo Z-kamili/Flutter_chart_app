@@ -9,11 +9,12 @@ class NewTransaction extends StatefulWidget {
   @override
   _NewTransactionState createState() => _NewTransactionState();
   
+  
 }
 
 class _NewTransactionState extends State<NewTransaction> {
-  final titleController = TextEditingController();
 
+  final titleController = TextEditingController();
   final amountController = TextEditingController();
 
   void submitData() {
@@ -30,6 +31,7 @@ class _NewTransactionState extends State<NewTransaction> {
     );
 
     Navigator.of(context).pop();
+
   }
 
   @override
@@ -45,9 +47,6 @@ class _NewTransactionState extends State<NewTransaction> {
               decoration: InputDecoration(labelText: 'Title'),
               controller: titleController,
               onSubmitted: (_) => submitData(),
-              // onChanged: (val) {
-              //   titleInput = val;
-              // },
             ),
             TextField(
               decoration: InputDecoration(labelText: 'Amount'),
