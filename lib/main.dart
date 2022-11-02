@@ -1,14 +1,17 @@
 import 'package:first_app/models/transaction.dart';
 import 'package:first_app/widgets/new_transaction.dart';
 import 'package:first_app/widgets/transaction_list.dart';
-import './widgets/user_transaction.dart';
+// import './widgets/user_transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import './widgets/transaction_list.dart';
 
+
 void main() {
   runApp(const MyApp());
 }
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -68,11 +71,28 @@ class _MyHomePageState extends State<MyHomePage> {
       amount: 78.99,
       date:DateTime.now()
       ),
+
   ];
+
+  void _addNewTransaction(String txTitle,double txAmount) 
+  {
+    final newTx = Transaction(
+      title: txTitle, 
+      amount: txAmount, 
+      date: DateTime.now(),
+      id:DateTime.now().toString(),
+      );
+  }
 
 
   final titleController = TextEditingController();
   final amountController = TextEditingController();
+
+  void _startAddNewTransaction(BuildContext ctx) {
+    showModalBottomSheet(context: ctx,builder: (_) {
+            return NewTransaction(_addNewTransaction);
+    },);
+  }
 
 
   @override
@@ -82,10 +102,9 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
         actions : <Widget> [
-            IconButton(icon: Icon(Icons.add),
-            onPressed: () {
-
-            },
+            IconButton(
+            icon: Icon(Icons.add),
+            onPressed: () => _startAddNewTransaction(context),
             ),
         ],
       ),
@@ -103,16 +122,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   elevation : 5,
                ),
             ),
-           UserTransaction()
+           TransactionList(transaction)
         ],
     ),
   ),
   floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
   floatingActionButton: FloatingActionButton(
     child: Icon(Icons.add),
-    onPressed: () {
-        
-    },
+    onPressed: () => _startAddNewTransaction(context),
   ),
 
   );

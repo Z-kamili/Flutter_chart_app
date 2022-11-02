@@ -11,6 +11,7 @@ class NewTransaction extends StatelessWidget {
 
    void submitData()
    {
+    
     final enteredTitle = titleController.text;
     final enteredAmount = double.parse(amountController.text);
 
