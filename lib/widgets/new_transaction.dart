@@ -1,66 +1,72 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class NewTransaction extends StatelessWidget {
+class NewTransaction extends StatefulWidget {
 
-   final Function addTx;
-   final titleController = TextEditingController();
-   final amountController = TextEditingController();
+  final Function addTx;
 
-   NewTransaction(this.addTx);
+  NewTransaction(this.addTx);
 
-   void submitData()
-   {
-    
+  @override
+  _NewTransactionState createState() => _NewTransactionState();
+  
+}
+
+class _NewTransactionState extends State<NewTransaction> {
+  final titleController = TextEditingController();
+
+  final amountController = TextEditingController();
+
+  void submitData() {
     final enteredTitle = titleController.text;
     final enteredAmount = double.parse(amountController.text);
 
-    if(enteredTitle.isEmpty || enteredAmount <= 0) 
-    {
+    if (enteredTitle.isEmpty || enteredAmount <= 0) {
       return;
     }
 
-    addTx(
-      titleController.text,
-      double.parse(amountController.text)
+    widget.addTx(
+      enteredTitle,
+      enteredAmount,
     );
-    
-   }
 
-   @override 
-   Widget build(BuildContext context) 
-   {
-        return     
-            Card(
-              elevation: 5,
-              child:Container(
-                padding: EdgeInsets.all(10),
-                child:Column(
-                  children: <Widget>[
-                       TextField(
-                        decoration: InputDecoration(labelText: 'Title'),
-                        controller: titleController,
-                        onSubmitted: (_) => submitData,
-                       ),
-                       TextField(
-                        decoration: InputDecoration(labelText: 'Amount'),
-                        controller: amountController,
-                        keyboardType: TextInputType.number,
-                        onSubmitted: (_) => submitData,
-                       ),
-                       ElevatedButton(
-                        child:Text('Add Transaction'),
-                        style: ElevatedButton.styleFrom(
-                             // ignore: deprecated_member_use
-                             primary: Colors.purple,
-                        ),
-                        onPressed: submitData,
-                        )
-                    ],
-                  ),
-              )
-          );
-   }
+    Navigator.of(context).pop();
+  }
 
-
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 5,
+      child: Container(
+        padding: EdgeInsets.all(10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: <Widget>[
+            TextField(
+              decoration: InputDecoration(labelText: 'Title'),
+              controller: titleController,
+              onSubmitted: (_) => submitData(),
+              // onChanged: (val) {
+              //   titleInput = val;
+              // },
+            ),
+            TextField(
+              decoration: InputDecoration(labelText: 'Amount'),
+              controller: amountController,
+              keyboardType: TextInputType.number,
+              onSubmitted: (_) => submitData(),
+              // onChanged: (val) => amountInput = val,
+            ),
+            ElevatedButton(
+              child:Text('Add Transaction'),
+              style: ElevatedButton.styleFrom(
+                // ignore: deprecated_member_use
+                primary: Colors.purple,
+              ),
+              onPressed: submitData,
+          )
+          ],
+        ),
+      ),
+    );
+  }
 }

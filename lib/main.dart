@@ -57,6 +57,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+
    final List<Transaction> transaction =  [
 
     Transaction(
@@ -65,6 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
       amount: 69.99,
       date:DateTime.now()
     ),
+
     Transaction(
       id: 't2', 
       title: 'Weekly Groceries', 
@@ -73,6 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
 
   ];
+
 
   void _addNewTransaction(String txTitle,double txAmount) 
   {
@@ -90,8 +93,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _startAddNewTransaction(BuildContext ctx) {
     showModalBottomSheet(context: ctx,builder: (_) {
-            return NewTransaction(_addNewTransaction);
-    },);
+            return GestureDetector(
+              onTap: () {
+
+              },
+              child:  NewTransaction(_addNewTransaction),
+              behavior: HitTestBehavior.opaque,
+            );
+    },
+);
   }
 
 
