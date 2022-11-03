@@ -19,8 +19,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Personal Expenses',
       theme: ThemeData(
+         primarySwatch: Colors.purple, //here is where the error resides 
+
         // This is the theme of your application.
         //
         // Try running your application with "flutter run". You'll see the
@@ -30,7 +32,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application.
         // is not restarted.
-        primarySwatch: Colors.blue,
+
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -89,13 +91,16 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       transaction.add(newTx);
     });
+
   }
 
 
   final titleController = TextEditingController();
   final amountController = TextEditingController();
 
+
   void _startAddNewTransaction(BuildContext ctx) {
+
     showModalBottomSheet(context: ctx,builder: (_) {
             return GestureDetector(
               onTap: () {},
@@ -104,6 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
             );
     },
   );
+
   }
 
 
@@ -143,6 +149,6 @@ class _MyHomePageState extends State<MyHomePage> {
     child: Icon(Icons.add),
     onPressed: () => _startAddNewTransaction(context),
   ),
-  );
+);
 }
 }
