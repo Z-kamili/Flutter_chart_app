@@ -21,7 +21,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Personal Expenses',
       theme: ThemeData(
-         primarySwatch: Colors.purple, //here is where the error resides 
+         primarySwatch: Colors.purple,
+         accentColor: Colors.amber //here is where the error resides 
 
         // This is the theme of your application.
         //
