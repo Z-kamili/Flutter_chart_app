@@ -22,7 +22,18 @@ class MyApp extends StatelessWidget {
       title: 'Personal Expenses',
       theme: ThemeData(
          primarySwatch: Colors.purple,
-         accentColor: Colors.amber //here is where the error resides 
+         accentColor: Colors.amber,
+         fontFamily: 'Quicksand',
+          appBarTheme: AppBarTheme(
+            textTheme: ThemeData.light().textTheme.copyWith(
+                  titleLarge: TextStyle(
+                    fontFamily: 'OpenSans',
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+          )
+          //here is where the error resides 
 
         // This is the theme of your application.
         //
