@@ -1,7 +1,7 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
 import '../models/transaction.dart';
 
 class Chart extends StatelessWidget {
@@ -31,17 +31,20 @@ class Chart extends StatelessWidget {
     });
  }
 
+ double get totalSpending {
+  return groupedTransactionValues.fold(0.0, (sum,item) {
+   
+      return sum + (item['amount'] as double);
+ 
+  });
+ }
+
   @override 
   Widget build(BuildContext context) {
     print(groupedTransactionValues);
     return Card(
           elevation:6,
           margin: EdgeInsets.all(20),
-          child: Row(
-            children: groupedTransactionValues.map((data) {
-                return Text('${data['day']}: ${data['amount']}');
-            }).toList(),
-            ),
     );
   }
 
