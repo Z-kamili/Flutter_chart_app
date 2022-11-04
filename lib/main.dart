@@ -128,7 +128,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child:  NewTransaction(_addNewTransaction),
               behavior: HitTestBehavior.opaque,
             );
-    },
+    },    
   );
 
   }
