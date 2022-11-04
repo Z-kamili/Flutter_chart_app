@@ -1,4 +1,5 @@
 
+import 'package:first_app/widgets/chart_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -45,6 +46,21 @@ class Chart extends StatelessWidget {
     return Card(
           elevation:6,
           margin: EdgeInsets.all(20),
+                  child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: groupedTransactionValues.map((data) {
+            return Flexible(
+              fit: FlexFit.tight,
+              child: ChartBar(
+                data['day'] as String,
+                data['amount'] as double,
+                totalSpending == 0.0
+                    ? 0.0
+                    : (data['amount'] as double) / totalSpending,
+              ),
+            );
+          }).toList(),
+        ),
     );
   }
 
