@@ -1,4 +1,5 @@
 import 'package:first_app/models/transaction.dart';
+import 'package:first_app/widgets/chart.dart';
 import 'package:first_app/widgets/new_transaction.dart';
 import 'package:first_app/widgets/transaction_list.dart';
 import 'package:flutter/material.dart';
@@ -72,24 +73,32 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
 
-   final List<Transaction> transaction =  [
-
+  final List<Transaction> _userTransactions = [
     // Transaction(
-    //   id: 't1', 
-    //   title: 'New Shoes', 
+    //   id: 't1',
+    //   title: 'New Shoes',
     //   amount: 69.99,
-    //   date:DateTime.now()
+    //   date: DateTime.now(),
     // ),
-
     // Transaction(
-    //   id: 't2', 
-    //   title: 'Weekly Groceries', 
-    //   amount: 78.99,
-    //   date:DateTime.now()
-    //   ),
-
+    //   id: 't2',
+    //   title: 'Weekly Groceries',
+    //   amount: 16.53,
+    //   date: DateTime.now(),
+    // ),
   ];
 
+  List<Transaction> get _recentTransactions {
+    
+    return _userTransactions.where((tx) {
+      return tx.date.isAfter(
+        DateTime.now().subtract(
+          Duration(days: 7),
+        ),
+      );
+    }).toList();
+
+  }
 
   void _addNewTransaction(String txTitle,double txAmount) 
   {
@@ -101,7 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
       id:DateTime.now().toString(),
       );
     setState(() {
-      transaction.add(newTx);
+      _userTransactions.add(newTx);
     });
 
   }
@@ -152,7 +161,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   elevation : 5,
                ),
             ),
-           TransactionList(transaction)
+            Chart(_recentTransactions),
+           TransactionList(_userTransactions)
         ],
     ),
   ),
