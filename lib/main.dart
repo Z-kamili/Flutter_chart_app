@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
          accentColor: Colors.amber,
          fontFamily: 'Quicksand',
           appBarTheme: AppBarTheme(
+            // ignore: deprecated_member_use
             textTheme: ThemeData.light().textTheme.copyWith(
                   titleLarge: TextStyle(
                     fontFamily: 'OpenSans',
