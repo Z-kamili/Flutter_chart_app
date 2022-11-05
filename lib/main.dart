@@ -50,6 +50,8 @@ class MyApp extends StatelessWidget {
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
+
+
 }
 
 class MyHomePage extends StatefulWidget {
@@ -102,13 +104,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _addNewTransaction(String txTitle,double txAmount) 
   {
-
+    
     final newTx = Transaction(
       title: txTitle, 
       amount: txAmount, 
       date: DateTime.now(),
       id:DateTime.now().toString(),
-      );
+  );
+
     setState(() {
       _userTransactions.add(newTx);
     });
@@ -130,7 +133,8 @@ class _MyHomePageState extends State<MyHomePage> {
               behavior: HitTestBehavior.opaque,
             );
             
-    },    
+    },
+
   );
 
   }

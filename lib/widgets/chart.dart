@@ -1,4 +1,3 @@
-
 import 'package:first_app/widgets/chart_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +23,6 @@ class Chart extends StatelessWidget {
           }
       }
       print(DateFormat.E().format(weekDay));
-      print(totalSum);
         return {
           'day':DateFormat.E().format(weekDay).substring(0,1),
           'amount':totalSum,
@@ -42,11 +40,12 @@ class Chart extends StatelessWidget {
 
   @override 
   Widget build(BuildContext context) {
-    print(groupedTransactionValues);
     return Card(
           elevation:6,
           margin: EdgeInsets.all(20),
-                  child: Row(
+          child: Container(
+          padding: EdgeInsets.all(10),
+          child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: groupedTransactionValues.map((data) {
             return Flexible(
@@ -60,6 +59,7 @@ class Chart extends StatelessWidget {
               ),
             );
           }).toList(),
+        ),
         ),
     );
   }
