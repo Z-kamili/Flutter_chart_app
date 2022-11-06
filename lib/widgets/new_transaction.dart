@@ -36,19 +36,19 @@ class _NewTransactionState extends State<NewTransaction> {
 
   }
 
-  void _presentDatePicker()
-  {
-    showDatePicker(context: context,
-    initialDate:DateTime.now(),
-    firstDate: DateTime(2019),
-    lastDate: DateTime.now(),
-    ).then((value)  {
-       if (value == null) {
-        return ;
-       } 
-       setState(() {
-        _selectedDate = value;
-       });
+  void _presentDatePicker() {
+    showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(DateTime.now().year),
+      lastDate: DateTime.now(),
+    ).then((pickedDate) {
+      if (pickedDate == null) {
+        return;
+      }
+      setState(() {
+        _selectedDate = pickedDate;
+      });
     });
     print('...');
   }
