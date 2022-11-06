@@ -33,6 +33,7 @@ class MyApp extends StatelessWidget {
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
+                  
                 ),
           )
           //here is where the error resides 
@@ -76,6 +77,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
 
+  //private
   final List<Transaction> _userTransactions = [
     // Transaction(
     //   id: 't1',
@@ -90,6 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
     //   date: DateTime.now(),
     // ),
   ];
+
 
   List<Transaction> get _recentTransactions {
     

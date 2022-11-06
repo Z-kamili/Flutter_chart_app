@@ -17,7 +17,7 @@ class _NewTransactionState extends State<NewTransaction> {
   final titleController = TextEditingController();
   final amountController = TextEditingController();
 
-  void submitData() {
+  void _submitData() {
     final enteredTitle = titleController.text;
     final enteredAmount = double.parse(amountController.text);
 
@@ -34,6 +34,15 @@ class _NewTransactionState extends State<NewTransaction> {
 
   }
 
+  void _presentDatePicker()
+  {
+    showDatePicker(context: context,
+    initialDate:DateTime.now(),
+    firstDate: DateTime(2019),
+    lastDate: DateTime.now(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -46,22 +55,40 @@ class _NewTransactionState extends State<NewTransaction> {
             TextField(
               decoration: InputDecoration(labelText: 'Title'),
               controller: titleController,
-              onSubmitted: (_) => submitData(),
+              onSubmitted: (_) => _submitData(),
             ),
             TextField(
               decoration: InputDecoration(labelText: 'Amount'),
               controller: amountController,
               keyboardType: TextInputType.number,
-              onSubmitted: (_) => submitData(),
+              onSubmitted: (_) => _submitData(),
               // onChanged: (val) => amountInput = val,
             ),
-            ElevatedButton(
+           Container(
+            height: 70,
+           child :  Row(
+              children: <Widget>[
+                Text('No Date chosen!'),
+                ElevatedButton(
+                  child:Text('Choose Date',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold
+                      ),
+                  ),
+                  onPressed: () {
+                      _presentDatePicker();
+                  },
+          )
+              ],
+             ),
+        ),
+        ElevatedButton(
               child:Text('Add Transaction'),
               style: ElevatedButton.styleFrom(
                 // ignore: deprecated_member_use
                 primary: Colors.purple,
               ),
-              onPressed: submitData,
+              onPressed: _submitData,
           )
           ],
         ),
