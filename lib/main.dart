@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
       title: 'Personal Expenses',
       theme: ThemeData(
          primarySwatch: Colors.purple,
+         errorColor: Colors.red,
          accentColor: Colors.amber,
          fontFamily: 'Quicksand',
           appBarTheme: AppBarTheme(
@@ -141,6 +142,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
   );
 
+  }
+
+  void _deleteTransaction(String id) 
+  {
+       setState(() {
+         _userTransactions.removeWhere((element) {
+          return element.id == id;
+         });
+       });
   }
 
 

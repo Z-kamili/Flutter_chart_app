@@ -6,6 +6,7 @@ class TransactionList extends StatelessWidget {
 
   final List<Transaction> transaction;
 
+
   TransactionList(this.transaction);
 
 
@@ -13,7 +14,6 @@ class TransactionList extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Container(
-      
       height: 300,
       child: transaction.isEmpty
           ? Column(
@@ -59,6 +59,11 @@ class TransactionList extends StatelessWidget {
                       DateFormat.yMMMd().format(
                         transaction[index].date
                       ),
+                    ),
+                    trailing: IconButton(
+                      icon: Icon(Icons.delete),
+                      color: Theme.of(context).errorColor,
+                      onPressed: () => {},
                     ),
                   ),
                 );
