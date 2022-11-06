@@ -14,7 +14,7 @@ class TransactionList extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Container(
-      height: 450,
+      height: 500,
       child: transaction.isEmpty
           ? Column(
               children: <Widget>[
