@@ -178,16 +178,19 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
         ],
       ),
-      body: 
-      SingleChildScrollView(
+      body: SingleChildScrollView(
       child: Column(
-          // mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Chart(_recentTransactions),
-            TransactionList(_userTransactions,_deleteTransaction),
-          ],
-        ),
+            Container(
+              height: (MediaQuery.of(context).size.height - appBar.preferredSize.height) * 0.4,
+              child:  Chart(_recentTransactions),
+            ),
+            Container(
+            child : TransactionList(_userTransactions , _deleteTransaction),
+            ),  
+        ],
+    ),
   ),
   floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
   floatingActionButton: FloatingActionButton(
