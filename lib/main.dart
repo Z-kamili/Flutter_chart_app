@@ -8,18 +8,21 @@ import './widgets/transaction_list.dart';
 
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  
+  // const MyApp({super.key});
+  
 
   // This widget is the root of your application.
   
   @override
   Widget build(BuildContext context) {
+    // final isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
     return MaterialApp(
       title: 'Personal Expenses',
       theme: ThemeData(
@@ -48,7 +51,6 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application.
         // is not restarted.
-
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
