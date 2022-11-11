@@ -13,9 +13,7 @@ class TransactionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     
-    return Container(
-      height: MediaQuery.of(context).size.height * 0.6,
-      child: transaction.isEmpty
+   return  transaction.isEmpty
           ? Column(
               children: <Widget>[
                 Text(
@@ -30,9 +28,10 @@ class TransactionList extends StatelessWidget {
                     child: Image.asset(
                       'assets/image/waiting.png',
                       fit: BoxFit.cover,
-                    )),
-              ],
-            )
+                    )
+              ),
+          ],
+    )
           : ListView.builder(
               itemBuilder: (ctx, index) {
                 return Card(
@@ -70,9 +69,7 @@ class TransactionList extends StatelessWidget {
                 );
               },
               itemCount: transaction.length,
-            ),
-    );
-
+            );
 
   }
 

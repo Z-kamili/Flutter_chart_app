@@ -34,8 +34,7 @@ class MyApp extends StatelessWidget {
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
-                  
-                ),
+              ),
           )
           //here is where the error resides 
 
@@ -169,24 +168,19 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
     );
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        actions : <Widget> [
-            IconButton(
-            icon: Icon(Icons.add),
-            onPressed: () => _startAddNewTransaction(context),
-            ),
-        ],
-      ),
+      appBar: appBar,
       body: SingleChildScrollView(
       child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Container(
-              height: (MediaQuery.of(context).size.height - appBar.preferredSize.height) * 0.4,
+              height: (MediaQuery.of(context).size.height - 
+              appBar.preferredSize.height - 
+              MediaQuery.of(context).padding.top) * 0.3,
               child:  Chart(_recentTransactions),
             ),
             Container(
+            height: (MediaQuery.of(context).size.height - appBar.preferredSize.height) * 0.7,
             child : TransactionList(_userTransactions , _deleteTransaction),
             ),  
         ],
