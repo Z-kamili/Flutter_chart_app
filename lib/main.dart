@@ -93,6 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // ),
   ];
 
+  bool _showChart = false;
 
   List<Transaction> get _recentTransactions {
     
@@ -173,6 +174,14 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
+            Row(children: <Widget>[
+              Text('Show Chart'),
+              Switch(value: true, onChanged:(val){
+                 setState(() {
+                   _showChart = val;
+                 });  
+              },),
+            ],),
             Container(
               height: (MediaQuery.of(context).size.height - 
               appBar.preferredSize.height - 
