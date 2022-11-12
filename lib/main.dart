@@ -8,7 +8,7 @@ import './widgets/transaction_list.dart';
 
 
 void main() {
-  runApp(MyApp());
+  runApp(MaterialApp(home:MyApp()));
 }
 
 
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    // final isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
+    final isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
     return MaterialApp(
       title: 'Personal Expenses',
       theme: ThemeData(
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
          accentColor: Colors.amber,
          fontFamily: 'Quicksand',
           appBarTheme: AppBarTheme(
-            // ignore: deprecated_member_use
+            // ignore: deprecated_member_use.
             textTheme: ThemeData.light().textTheme.copyWith(
                   titleLarge: TextStyle(
                     fontFamily: 'OpenSans',
@@ -160,7 +160,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
 
-    MediaQuery.of(context).orientation == Orientation.landscape;
+ final isLandscape =   MediaQuery.of(context).orientation == Orientation.landscape;
 
     final appBar = AppBar(
         title: Text(
@@ -179,7 +179,7 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Row(
+          if(isLandscape)  Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
               Text('Show Chart'),
