@@ -19,7 +19,6 @@ class MyApp extends StatelessWidget {
   
   // const MyApp({super.key});
   
-
   // This widget is the root of your application.
   
   @override
@@ -162,6 +161,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
 
+    print('build() MyHomePageState');
+    
     MediaQuery.of(context).orientation == Orientation.landscape;
 
     final appBar = AppBar(
