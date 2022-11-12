@@ -20,9 +20,11 @@ class _NewTransactionState extends State<NewTransaction> {
   DateTime _selectedDate = DateTime.now();
 
   void _submitData() {
+
     if(amountController.text.isEmpty) {
       return;
     }
+
     final enteredTitle = titleController.text;
     final enteredAmount = double.parse(amountController.text);
 
@@ -41,6 +43,7 @@ class _NewTransactionState extends State<NewTransaction> {
   }
 
   void _presentDatePicker() {
+    
     showDatePicker(
 
       context: context,
