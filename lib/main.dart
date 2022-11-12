@@ -8,7 +8,9 @@ import './widgets/transaction_list.dart';
 
 
 void main() {
-  runApp(MaterialApp(home:MyApp()));
+  runApp(
+    MaterialApp(home:MyApp())  
+    );
 }
 
 
@@ -160,7 +162,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
 
- final isLandscape =   MediaQuery.of(context).orientation == Orientation.landscape;
+    MediaQuery.of(context).orientation == Orientation.landscape;
 
     final appBar = AppBar(
         title: Text(
@@ -179,7 +181,7 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-          if(isLandscape)  Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
               Text('Show Chart'),
