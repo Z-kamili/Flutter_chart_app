@@ -7,10 +7,9 @@ class TransactionItem extends StatelessWidget {
   final Transaction transaction;
   final Function deleteTx;
   const TransactionItem({
-    required Key key,
     required this.transaction,
     required this.deleteTx,
-  }) : super(key: key);
+  });
 
 
 
