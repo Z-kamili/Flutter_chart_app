@@ -45,7 +45,7 @@ class TransactionList extends StatelessWidget {
                     leading: CircleAvatar(
                       radius: 30,
                       child: Padding(
-                        padding: EdgeInsets.all(6),
+                        padding: const EdgeInsets.all(6),
                         child: FittedBox(
                           child: Text('\$${transaction[index].amount}'),
                           // child: Text(index),
