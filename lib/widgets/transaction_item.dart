@@ -1,41 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
 import '../models/transaction.dart';
 
-class TransactionList extends StatelessWidget {
-
-  final List<Transaction> transaction;
+class TransactionItem extends StatelessWidget {
+  final Transaction transaction;
   final Function deleteTx;
+  const TransactionItem({
+    required Key key,
+    required this.transaction,
+    required this.deleteTx,
+  }) : super(key: key);
 
-  TransactionList(this.transaction,this.deleteTx);
 
 
   @override
   Widget build(BuildContext context) {
-    
-   print('build() TransactionList');
-   return  transaction.isEmpty
-          ? Column(
-              children: <Widget>[
-                Text(
-                  'No transactions added yet!',
-                  style: Theme.of(context).textTheme.titleLarge,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Container(
-                    height: 200,
-                    child: Image.asset(
-                      'assets/image/waiting.png',
-                      fit: BoxFit.cover,
-                    )
-              ),
-          ],
-    )
-          : ListView.builder(
-              itemBuilder: (ctx, index) {
-                return Card(
+    return Card(
                   elevation: 5,
                   margin: EdgeInsets.symmetric(
                     vertical: 8,
@@ -48,32 +29,26 @@ class TransactionList extends StatelessWidget {
                         //const means that the value can't change.
                         padding: const EdgeInsets.all(6),
                         child: FittedBox(
-                          child: Text('\$${transaction[index].amount}'),
+                          child: Text('\$${transaction.amount}'),
                           // child: Text(index),
                         ),
                       ),
                     ),
                     title: Text(
-                      transaction[index].title,
+                      transaction.title,
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     subtitle: Text(
                       DateFormat.yMMMd().format(
-                        transaction[index].date
+                        transaction.date
                       ),
                     ),
                     trailing: IconButton(
                       icon: Icon(Icons.delete),
                       color: Theme.of(context).errorColor,
-                      onPressed: () => deleteTx(transaction[index].id),
+                      onPressed: () => deleteTx(transaction.id),
                     ),
                   ),
                 );
-              },
-              itemCount: transaction.length,
-            );
-
   }
-
-
 }
