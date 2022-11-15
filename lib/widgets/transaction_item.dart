@@ -9,6 +9,7 @@ import '../models/transaction.dart';
 class TransactionItem extends StatefulWidget {
 
   const TransactionItem({
+   required Key key,
     required this.transaction,
     required this.deleteTx,
   });
