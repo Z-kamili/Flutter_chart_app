@@ -12,7 +12,7 @@ class TransactionItem extends StatefulWidget {
    required Key key,
     required this.transaction,
     required this.deleteTx,
-  });
+  }) : super(key: key);
 
   final Transaction transaction;
   final Function deleteTx;
