@@ -11,8 +11,6 @@ class TransactionItem extends StatelessWidget {
     required this.deleteTx,
   });
 
-
-
   @override
   Widget build(BuildContext context) {
     return Card(

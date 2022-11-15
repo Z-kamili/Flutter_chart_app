@@ -146,7 +146,8 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
   final amountController = TextEditingController();
 
 
-  void _startAddNewTransaction(BuildContext ctx) {
+  void _startAddNewTransaction(BuildContext ctx) 
+  {
 
     showModalBottomSheet(context: ctx,builder: (_) {
 
