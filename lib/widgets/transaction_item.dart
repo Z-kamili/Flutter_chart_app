@@ -23,10 +23,9 @@ class TransactionItem extends StatefulWidget {
 }
 class _TransactionItemState extends State<TransactionItem> {
 
-  @override
-  Widget build(BuildContext context) {
 
-    Color _bgColor;
+  Color _bgColor = Colors.black;
+
 
   @override
   void initState() {
@@ -39,8 +38,12 @@ class _TransactionItemState extends State<TransactionItem> {
     ];
 
     _bgColor = availableColors[Random().nextInt(4)];
+    super.initState();
     
   }
+
+  @override
+  Widget build(BuildContext context) {
 
     return Card(
                   elevation: 5,
@@ -50,6 +53,7 @@ class _TransactionItemState extends State<TransactionItem> {
                   ),
                   child: ListTile(
                     leading: CircleAvatar(
+                      backgroundColor: _bgColor,
                       radius: 30,
                       child: Padding(
                         //const means that the value can't change.
