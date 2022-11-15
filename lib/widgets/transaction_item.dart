@@ -45,7 +45,7 @@ class _TransactionItemState extends State<TransactionItem> {
 
   @override
   Widget build(BuildContext context) {
-
+    //card 
     return Card(
                   elevation: 5,
                   margin: EdgeInsets.symmetric(
